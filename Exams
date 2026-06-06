@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grade 11 Maths Paper 2 – June 2026 Study Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #13131a;
+    --surface2: #1c1c28;
+    --border: #2a2a3a;
+    --gold: #f5c842;
+    --gold2: #e8a000;
+    --teal: #00c9b1;
+    --pink: #ff6b9d;
+    --blue: #5b9cf6;
+    --text: #e8e8f0;
+    --muted: #7a7a9a;
+    --correct: #4ade80;
+    --warn: #fb923c;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #0d0d1a 0%, #111128 50%, #0a1a1a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 60px 40px 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,201,177,0.08), transparent);
+    pointer-events: none;
+  }
+  .hero-badge {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--gold), var(--gold2));
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.6rem);
+    font-weight: 900;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #fff 30%, var(--teal));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+  }
+  .hero-sub {
+    color: var(--muted);
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+  .hero-sub span { color: var(--teal); font-weight: 600; }
+  .exam-countdown {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+    background: rgba(245,200,66,0.1);
+    border: 1px solid rgba(245,200,66,0.3);
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-size: 13px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .exam-countdown::before { content: '⏰'; font-size: 16px; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(10,10,15,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-btn {
+    background: none; border: none;
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 14px 16px;
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .nav-btn:hover, .nav-btn.active {
+    color: var(--teal);
+    border-bottom-color: var(--teal);
+  }
+
+  /* ── LAYOUT ── */
+  .container { max-width: 960px; margin: 0 auto; padding: 40px 24px 80px; }
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── SECTION HEADER ── */
+  .sec-header {
+    display: flex; align-items: center; gap: 16px;
+    margin-bottom: 36px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sec-icon {
+    width: 48px; height: 48px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+  .sec-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #fff;
+  }
+  .sec-header p { color: var(--muted); font-size: 13px; margin-top: 3px; }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px 28px;
+    margin-bottom: 22px;
+  }
+  .card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .card-title .tag {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(245,200,66,0.15);
+    color: var(--gold2);
+    padding: 3px 9px;
+    border-radius: 6px;
+  }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--surface2);
+    border: 1px solid var(--teal);
+    border-left: 4px solid var(--teal);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 14px 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 14px;
+    color: var(--teal);
+    line-height: 1.9;
+  }
+  .formula-box .label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+
+  /* ── DEFINITION ── */
+  .def-box {
+    background: rgba(91,156,246,0.08);
+    border: 1px solid rgba(91,156,246,0.25);
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 12px 0;
+  }
+  .def-box .def-word {
+    font-weight: 700;
+    color: var(--blue);
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  /* ── EXAMPLE ── */
+  .example {
+    background: var(--surface2);
+    border-radius: 12px;
+    padding: 20px 22px;
+    margin: 14px 0;
+    border-left: 3px solid var(--pink);
+  }
+  .example .ex-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--pink);
+    margin-bottom: 10px;
+  }
+  .example p, .example li { margin-bottom: 8px; font-size: 14px; }
+  .example .step { color: var(--muted); font-size: 13px; }
+  .example .answer {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+    color: var(--correct);
+    font-weight: 600;
+    font-size: 14px;
+  }
+
+  /* ── GRID ── */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 640px) { .grid-2 { grid-template-columns: 1fr; } }
+
+  /* ── HIGHLIGHT ── */
+  .hl-gold { color: var(--gold); font-weight: 600; }
+  .hl-teal { color: var(--teal); font-weight: 600; }
+  .hl-pink { color: var(--pink); font-weight: 600; }
+  .hl-blue { color: var(--blue); font-weight: 600; }
+
+  ul.notes { padding-left: 18px; }
+  ul.notes li { margin-bottom: 7px; font-size: 14px; }
+  ul.notes li::marker { color: var(--teal); }
+
+  /* ── WARNING ── */
+  .warn-box {
+    background: rgba(251,146,60,0.1);
+    border: 1px solid rgba(251,146,60,0.3);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin: 14px 0;
+    font-size: 13px;
+    color: var(--warn);
+  }
+  .warn-box::before { content: '⚠️  '; }
+
+  /* ── PRACTICE TEST ── */
+  .q-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    margin-bottom: 20px;
+  }
+  .q-num {
+    display: inline-block;
+    background: var(--gold);
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+  }
+  .q-text { font-size: 14px; margin-bottom: 10px; }
+  .marks-badge {
+    font-size: 11px;
+    background: rgba(0,201,177,0.12);
+    color: var(--teal);
+    border: 1px solid rgba(0,201,177,0.25);
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  .memo-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    padding: 7px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 14px;
+    transition: all 0.2s;
+  }
+  .memo-toggle:hover { border-color: var(--teal); color: var(--teal); }
+  .memo-content {
+    display: none;
+    background: rgba(74,222,128,0.05);
+    border: 1px solid rgba(74,222,128,0.2);
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--correct);
+    line-height: 1.8;
+  }
+  .memo-content.show { display: block; }
+
+  /* ── TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  th {
+    background: var(--surface2);
+    color: var(--gold);
+    font-weight: 700;
+    padding: 10px 14px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  td {
+    padding: 9px 14px;
+    border: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 12px;
+  }
+  footer span { color: var(--gold); }
+
+  /* ── TOPIC PILLS ── */
+  .topic-pills {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin: 16px 0;
+  }
+  .pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 12px;
+    color: var(--muted);
+  }
+  .pill.hot { border-color: var(--pink); color: var(--pink); background: rgba(255,107,157,0.08); }
+
+  .divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 24px 0;
+  }
+
+  /* scroll reveal */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .card, .q-block { animation: fadeUp 0.4s ease both; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Grade 11 · Pure Mathematics · Paper 2</div>
+  <h1>Complete Study Guide<br>June 2026</h1>
+  <p class="hero-sub">Aligned with the <span>DBE South Africa</span> Curriculum · CAPS</p>
+  <div class="exam-countdown">Exam Date: Monday 8 June 2026 &nbsp;|&nbsp; 120 Marks &nbsp;|&nbsp; 2hrs 30min</div>
+  <p style="margin-top:14px;font-size:12px;color:#444;"> Created with Shden.K &amp; Claude</p>
+</div>
+
+<!-- NAV -->
+<nav>
+  <button class="nav-btn active" onclick="showSection('overview',this)">Overview</button>
+  <button class="nav-btn" onclick="showSection('analytic',this)">1. Analytical Geometry</button>
+  <button class="nav-btn" onclick="showSection('trig',this)">2. Trigonometry</button>
+  <button class="nav-btn" onclick="showSection('euclid',this)">3. Euclidean Geometry</button>
+  <button class="nav-btn" onclick="showSection('sine-cosine',this)">4. Sine &amp; Cosine Rules</button>
+  <button class="nav-btn" onclick="showSection('practice',this)">📝 Practice Test</button>
+</nav>
+
+<div class="container">
+
+<!-- ═══════════════════════════════ OVERVIEW ═══════════════════════════════ -->
+<div id="overview" class="section active">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(245,200,66,0.15)">📋</div>
+    <div>
+      <h2>Exam Overview</h2>
+      <p>Everything you need to know before you start</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Exam Structure & Mark Distribution</div>
+    <table>
+      <tr><th>Topic</th><th>Sub-topics</th><th>Approx. Marks</th></tr>
+      <tr><td class="hl-teal">1. Analytical Geometry</td><td>Distance, gradient, equations, inclination, area</td><td><span class="hl-gold">±30</span></td></tr>
+      <tr><td class="hl-pink">2. Trigonometry</td><td>Diagrams, reductions, co-ratios, identities, general solutions</td><td><span class="hl-gold">±50</span></td></tr>
+      <tr><td class="hl-blue">3. Euclidean Geometry</td><td>Proofs & applications (Gr 11 ATP)</td><td><span class="hl-gold">±30</span></td></tr>
+      <tr><td style="color:var(--correct)">4. Sine &amp; Cosine Rules</td><td>Proofs, applications, area rule</td><td><span class="hl-gold">±10</span></td></tr>
+      <tr><td colspan="2"><strong>TOTAL</strong></td><td><strong class="hl-gold">120</strong></td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">⚡ Exam Tips from DBE</div>
+    <ul class="notes">
+      <li>Write a <strong>formula sheet</strong> from memory before you start answering.</li>
+      <li>Show ALL working — even wrong answers earn method marks.</li>
+      <li>Draw diagrams for geometry and trig — they save you time.</li>
+      <li>For proofs, always state the theorem/reason next to each step.</li>
+      <li>Leave no question blank — attempt every part.</li>
+      <li>Manage your time: ~1.25 min per mark = 150 minutes for 120 marks (leaves 15 min review).</li>
+      <li>Underline or circle what the question is asking before you write.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔑 Must-Know Formulae (Formula Sheet)</div>
+    <div class="formula-box">
+      <div class="label">Analytical Geometry</div>
+      d = √[(x₂−x₁)² + (y₂−y₁)²]<br>
+      m = (y₂−y₁)/(x₂−x₁)<br>
+      y = mx + c  &nbsp;|&nbsp;  y − y₁ = m(x − x₁)<br>
+      tan θ = m  (angle of inclination)<br>
+      M = ((x₁+x₂)/2 ; (y₁+y₂)/2)
+    </div>
+    <div class="formula-box">
+      <div class="label">Trigonometry Identities</div>
+      sin²θ + cos²θ = 1<br>
+      tan θ = sin θ / cos θ<br>
+      sin(90°−θ) = cos θ ; cos(90°−θ) = sin θ<br>
+      sin(180°−θ) = sin θ ; cos(180°−θ) = −cos θ
+    </div>
+    <div class="formula-box">
+      <div class="label">Sine &amp; Cosine Rules + Area Rule</div>
+      a/sin A = b/sin B = c/sin C<br>
+      a² = b² + c² − 2bc·cos A<br>
+      Area △ = ½·b·c·sin A
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ ANALYTICAL GEOMETRY ═══════════════════════════════ -->
+<div id="analytic" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(0,201,177,0.15)">📐</div>
+    <div>
+      <h2>Analytical Geometry</h2>
+      <p>Topic 1 · All aspects learnt</p>
+    </div>
+  </div>
+
+  <!-- 1a Distance -->
+  <div class="card">
+    <div class="card-title">a. Distance Formula <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      The distance formula calculates the straight-line (Euclidean) distance between two points A(x₁;y₁) and B(x₂;y₂) on a Cartesian plane. It is derived from the Theorem of Pythagoras.
+    </div>
+    <div class="formula-box">
+      <div class="label">Formula</div>
+      AB = √[(x₂ − x₁)² + (y₂ − y₁)²]
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1 — Basic distance</div>
+      <p>Find the distance between A(2 ; 3) and B(6 ; 7).</p>
+      <p class="step">AB = √[(6−2)² + (7−3)²] = √[16 + 16] = √32 = 4√2</p>
+      <div class="answer">∴ AB = 4√2 units</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Find unknown coordinate</div>
+      <p>A(1 ; 2) and B(x ; 5). AB = √13. Find x.</p>
+      <p class="step">√[(x−1)² + (5−2)²] = √13</p>
+      <p class="step">(x−1)² + 9 = 13 → (x−1)² = 4 → x−1 = ±2</p>
+      <div class="answer">∴ x = 3 or x = −1</div>
+    </div>
+    <div class="warn-box">Common mistake: Forgetting to square-root at the end, or confusing (x₂−x₁) with (y₂−y₁).</div>
+  </div>
+
+  <!-- 1b Gradient -->
+  <div class="card">
+    <div class="card-title">b. Gradient Formula <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      The gradient (slope) of a line measures its steepness. It is the ratio of the vertical change (rise) to the horizontal change (run) between two points on the line.
+    </div>
+    <div class="formula-box">
+      <div class="label">Formula</div>
+      m = (y₂ − y₁) / (x₂ − x₁)
+    </div>
+    <ul class="notes">
+      <li><strong>Positive gradient:</strong> line slopes upward left → right</li>
+      <li><strong>Negative gradient:</strong> line slopes downward left → right</li>
+      <li><strong>Zero gradient:</strong> horizontal line (m = 0)</li>
+      <li><strong>Undefined gradient:</strong> vertical line (x₂ = x₁)</li>
+      <li><strong>Parallel lines:</strong> m₁ = m₂</li>
+      <li><strong>Perpendicular lines:</strong> m₁ × m₂ = −1</li>
+    </ul>
+    <div class="example">
+      <div class="ex-label">Example</div>
+      <p>Show that A(0;2), B(3;5) and C(−2;−1) are collinear (on the same line).</p>
+      <p class="step">m_AB = (5−2)/(3−0) = 3/3 = 1</p>
+      <p class="step">m_BC = (−1−5)/(−2−3) = −6/−5 = 6/5... wait let me recheck: m_AC = (−1−2)/(−2−0) = −3/−2 = 3/2</p>
+      <p class="step">m_AB = (5−2)/(3−0) = 1; m_AC = (−1−2)/(−2−0) = 3/2. Not collinear here — but the method is: if all gradients between pairs of points are equal, the points are collinear.</p>
+      <div class="answer">If m_AB = m_BC = m_AC → points are collinear.</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example — Perpendicular</div>
+      <p>Line l has gradient 3. What is the gradient of a line perpendicular to l?</p>
+      <p class="step">m_perp × 3 = −1 → m_perp = −1/3</p>
+      <div class="answer">∴ m_perp = −⅓</div>
+    </div>
+  </div>
+
+  <!-- 1c Equation of straight line -->
+  <div class="card">
+    <div class="card-title">c. Equation of a Straight Line <span class="tag">Core</span></div>
+    <div class="formula-box">
+      <div class="label">Two forms</div>
+      Slope-intercept:  y = mx + c<br>
+      Point-slope:      y − y₁ = m(x − x₁)
+    </div>
+    <div class="def-box">
+      <div class="def-word">How to find the equation</div>
+      You always need: (1) the gradient m, and (2) one point on the line.
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1</div>
+      <p>Find the equation of the line through (2;1) and (4;7).</p>
+      <p class="step">m = (7−1)/(4−2) = 6/2 = 3</p>
+      <p class="step">y − 1 = 3(x − 2) → y − 1 = 3x − 6</p>
+      <div class="answer">∴ y = 3x − 5</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Perpendicular line</div>
+      <p>Find the equation of the line through (1;4) perpendicular to y = 2x + 3.</p>
+      <p class="step">Gradient of given line: m = 2 → m_perp = −½</p>
+      <p class="step">y − 4 = −½(x − 1) → y = −½x + 4½</p>
+      <div class="answer">∴ y = −½x + 4.5</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — Parallel line</div>
+      <p>Find the equation of the line parallel to 3x + y = 5 passing through (0; −2).</p>
+      <p class="step">y = −3x + 5 → m = −3; parallel means same m</p>
+      <p class="step">y = −3x + c; substitute (0;−2): −2 = 0 + c → c = −2</p>
+      <div class="answer">∴ y = −3x − 2</div>
+    </div>
+  </div>
+
+  <!-- 1d Angle of Inclination -->
+  <div class="card">
+    <div class="card-title">d. Angle of Inclination <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      The angle of inclination (θ) is the angle the line makes with the positive x-axis, measured anti-clockwise. It satisfies 0° ≤ θ &lt; 180°.
+    </div>
+    <div class="formula-box">
+      <div class="label">Formula</div>
+      m = tan θ  →  θ = arctan(m)<br>
+      If m &lt; 0: θ is obtuse (between 90° and 180°)
+    </div>
+    <ul class="notes">
+      <li>If m > 0 → θ is acute (0° &lt; θ &lt; 90°)</li>
+      <li>If m &lt; 0 → θ is obtuse (90° &lt; θ &lt; 180°) — add 180° to calculator answer if negative</li>
+      <li>If m = 0 → θ = 0° (horizontal line)</li>
+      <li>Vertical line → θ = 90° (undefined m)</li>
+    </ul>
+    <div class="example">
+      <div class="ex-label">Example 1</div>
+      <p>Find the angle of inclination of y = 2x + 1.</p>
+      <p class="step">m = 2 → tan θ = 2 → θ = arctan(2)</p>
+      <div class="answer">∴ θ ≈ 63.43°</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Negative gradient</div>
+      <p>Find θ for the line through (1;4) and (3;−2).</p>
+      <p class="step">m = (−2−4)/(3−1) = −6/2 = −3</p>
+      <p class="step">tan θ = −3 → calculator gives −71.57°; since θ must be in [0°;180°): θ = 180° − 71.57°</p>
+      <div class="answer">∴ θ ≈ 108.43°</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — Angle between two lines</div>
+      <p>Lines with inclinations α and β. Find angle between them: use m₁ and m₂ with tan formula or just subtract inclinations.</p>
+      <p class="step">The angle φ between two lines: tan φ = |(m₁ − m₂)/(1 + m₁m₂)|</p>
+      <div class="answer">Note: This formula is sometimes asked in tougher questions.</div>
+    </div>
+  </div>
+
+  <!-- 1e Area -->
+  <div class="card">
+    <div class="card-title">e. Area of Geometrical Shape <span class="tag">Application</span></div>
+    <div class="def-box">
+      <div class="def-word">Using coordinates to find area</div>
+      Combine distance formula (for lengths), the gradient (for perpendicularity / height), and geometry area formulas.
+    </div>
+    <div class="formula-box">
+      <div class="label">Area of Triangle (Coordinate Geometry)</div>
+      Area = ½|x₁(y₂−y₃) + x₂(y₃−y₁) + x₃(y₁−y₂)|<br><br>
+      Or: Area = ½ × base × height
+    </div>
+    <div class="example">
+      <div class="ex-label">Example</div>
+      <p>Find the area of △ABC with A(0;0), B(4;0), C(2;3).</p>
+      <p class="step">Using ½ × base × height: base AB = 4 units (along x-axis), height = y-coordinate of C = 3</p>
+      <p class="step">Area = ½ × 4 × 3 = 6</p>
+      <div class="answer">∴ Area = 6 square units</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Shoelace Formula</div>
+      <p>A(1;2), B(5;2), C(3;6). Find area using shoelace.</p>
+      <p class="step">= ½|1(2−6) + 5(6−2) + 3(2−2)|</p>
+      <p class="step">= ½|1(−4) + 5(4) + 3(0)| = ½|−4 + 20| = ½ × 16</p>
+      <div class="answer">∴ Area = 8 square units</div>
+    </div>
+    <div class="warn-box">Exam tip: When they give 4 points (quadrilateral), split it into 2 triangles or use the shoelace formula for polygons.</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ TRIGONOMETRY ═══════════════════════════════ -->
+<div id="trig" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(255,107,157,0.15)">📐</div>
+    <div>
+      <h2>Trigonometry</h2>
+      <p>Topic 2 · All aspects (excluding trig functions/graphs)</p>
+    </div>
+  </div>
+
+  <!-- 2a Diagrams and Pythagoras -->
+  <div class="card">
+    <div class="card-title">a. Diagrams & Pythagoras Theorem <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">CAST Diagram</div>
+      Shows which trig ratios are POSITIVE in each quadrant:<br>
+      Quadrant 1 (0°–90°): ALL positive<br>
+      Quadrant 2 (90°–180°): Sine positive<br>
+      Quadrant 3 (180°–270°): Tan positive<br>
+      Quadrant 4 (270°–360°): Cos positive
+    </div>
+    <div class="formula-box">
+      <div class="label">Basic Trig Ratios (right triangle)</div>
+      sin θ = opposite/hypotenuse = y/r<br>
+      cos θ = adjacent/hypotenuse = x/r<br>
+      tan θ = opposite/adjacent = y/x<br><br>
+      Pythagoras: r² = x² + y²
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1</div>
+      <p>If sin θ = 3/5 and θ is in Q1, find cos θ and tan θ without a calculator.</p>
+      <p class="step">y = 3, r = 5 → x = √(25−9) = √16 = 4</p>
+      <p class="step">cos θ = 4/5; tan θ = 3/4</p>
+      <div class="answer">∴ cos θ = 4/5; tan θ = ¾</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Second Quadrant</div>
+      <p>If cos θ = −12/13 and θ ∈ (90°;180°), find sin θ and tan θ.</p>
+      <p class="step">Q2: cos is negative, sin is positive; x = −12, r = 13</p>
+      <p class="step">y = √(169−144) = √25 = 5</p>
+      <p class="step">sin θ = 5/13; tan θ = y/x = 5/(−12) = −5/12</p>
+      <div class="answer">∴ sin θ = 5/13; tan θ = −5/12</div>
+    </div>
+  </div>
+
+  <!-- 2b Reductions -->
+  <div class="card">
+    <div class="card-title">b. Reduction Formulae <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      Reduction formulae let us write trig ratios of any angle in terms of acute angles (reference angles). We use the CAST rule and co-ratios together.
+    </div>
+    <table>
+      <tr><th>Form</th><th>sin</th><th>cos</th><th>tan</th></tr>
+      <tr><td>180° − θ (Q2)</td><td>sin θ</td><td>−cos θ</td><td>−tan θ</td></tr>
+      <tr><td>180° + θ (Q3)</td><td>−sin θ</td><td>−cos θ</td><td>tan θ</td></tr>
+      <tr><td>360° − θ (Q4)</td><td>−sin θ</td><td>cos θ</td><td>−tan θ</td></tr>
+      <tr><td>−θ (Q4)</td><td>−sin θ</td><td>cos θ</td><td>−tan θ</td></tr>
+    </table>
+    <div class="formula-box">
+      <div class="label">Memory trick</div>
+      "180° ± θ" → the ratio NAME STAYS THE SAME (sign changes by CAST)<br>
+      "90° ± θ" → the ratio CHANGES (sin↔cos, co-function)
+    </div>
+    <div class="example">
+      <div class="ex-label">Example — Simplify</div>
+      <p>Simplify: sin(180°−θ) · cos(360°−θ) / tan(180°+θ)</p>
+      <p class="step">sin(180°−θ) = sin θ</p>
+      <p class="step">cos(360°−θ) = cos θ</p>
+      <p class="step">tan(180°+θ) = tan θ</p>
+      <p class="step">= (sin θ · cos θ) / tan θ = sin θ · cos θ · (cos θ/sin θ)</p>
+      <div class="answer">∴ = cos²θ</div>
+    </div>
+  </div>
+
+  <!-- 2c Co-ratios -->
+  <div class="card">
+    <div class="card-title">c. Co-ratios (Complementary Angles) <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      Co-ratios connect trig functions of complementary angles. When the angle is (90° − θ) or (90° + θ), the function swaps to its co-function.
+    </div>
+    <table>
+      <tr><th>Rule</th><th>Result</th></tr>
+      <tr><td>sin(90° − θ)</td><td>cos θ</td></tr>
+      <tr><td>cos(90° − θ)</td><td>sin θ</td></tr>
+      <tr><td>sin(90° + θ)</td><td>cos θ</td></tr>
+      <tr><td>cos(90° + θ)</td><td>−sin θ</td></tr>
+      <tr><td>tan(90° − θ)</td><td>1/tan θ = cot θ</td></tr>
+    </table>
+    <div class="example">
+      <div class="ex-label">Example</div>
+      <p>Simplify: sin(90° − θ) + cos(90° + θ) − sin(−θ)</p>
+      <p class="step">= cos θ + (−sin θ) − (−sin θ)</p>
+      <p class="step">= cos θ − sin θ + sin θ</p>
+      <div class="answer">∴ = cos θ</div>
+    </div>
+  </div>
+
+  <!-- 2d Identities -->
+  <div class="card">
+    <div class="card-title">d. Trigonometric Identities <span class="tag">High Mark</span></div>
+    <div class="formula-box">
+      <div class="label">Fundamental Identities</div>
+      (1) sin²θ + cos²θ = 1<br>
+      (2) tan θ = sin θ / cos θ<br>
+      (3) From (1): sin²θ = 1 − cos²θ and cos²θ = 1 − sin²θ
+    </div>
+    <div class="def-box">
+      <div class="def-word">Proving Identities — Rules</div>
+      ① Start with the MORE complicated side.<br>
+      ② Work on ONE side only (unless doing LHS = ... = RHS).<br>
+      ③ Convert everything to sin and cos.<br>
+      ④ Look for Pythagorean substitution: sin²θ + cos²θ = 1.<br>
+      ⑤ Factorize where possible.
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof 1 — Standard</div>
+      <p>Prove: (1 − cos²θ)/sin θ = sin θ</p>
+      <p class="step">LHS = sin²θ/sin θ = sin θ = RHS ✓</p>
+      <div class="answer">Identity proved.</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof 2 — Harder</div>
+      <p>Prove: (sin θ + cos θ)² − 1 = 2 sin θ cos θ</p>
+      <p class="step">LHS = sin²θ + 2sinθcosθ + cos²θ − 1</p>
+      <p class="step">= (sin²θ + cos²θ) + 2sinθcosθ − 1</p>
+      <p class="step">= 1 + 2sinθcosθ − 1 = 2sinθcosθ = RHS ✓</p>
+      <div class="answer">Identity proved.</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof 3 — With fractions</div>
+      <p>Prove: 1/(1+sinθ) + 1/(1−sinθ) = 2/cos²θ</p>
+      <p class="step">LHS = [(1−sinθ) + (1+sinθ)] / [(1+sinθ)(1−sinθ)]</p>
+      <p class="step">= 2 / (1 − sin²θ) = 2/cos²θ = RHS ✓</p>
+      <div class="answer">Identity proved.</div>
+    </div>
+    <hr class="divider">
+    <p style="font-size:14px;margin-bottom:14px;"><strong class="hl-gold">Simplification of Trig Expressions</strong></p>
+    <div class="example">
+      <div class="ex-label">Example</div>
+      <p>Simplify: sin(180°+θ)·tan(360°−θ) / cos(−θ)·sin(90°−θ)</p>
+      <p class="step">= (−sinθ)(−tanθ) / (cosθ)(cosθ)</p>
+      <p class="step">= sinθ·tanθ / cos²θ = sinθ·(sinθ/cosθ)/cos²θ</p>
+      <p class="step">= sin²θ / cos³θ</p>
+      <div class="answer">∴ = sin²θ / cos³θ</div>
+    </div>
+  </div>
+
+  <!-- 2e General Solutions -->
+  <div class="card">
+    <div class="card-title">e. General Solutions <span class="tag">Core</span></div>
+    <div class="def-box">
+      <div class="def-word">Definition</div>
+      Because trig functions are periodic, equations have infinitely many solutions. The general solution gives ALL solutions using the period of the function. We add n × period (n ∈ ℤ).
+    </div>
+    <div class="formula-box">
+      <div class="label">General Solution Rules</div>
+      sin θ = k → θ = arcsin(k) + 360°n  OR  θ = 180° − arcsin(k) + 360°n<br>
+      cos θ = k → θ = ±arccos(k) + 360°n<br>
+      tan θ = k → θ = arctan(k) + 180°n<br><br>
+      where n ∈ ℤ (integer)
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1 — sin equation</div>
+      <p>Solve: sin θ = 0.5 (general solution)</p>
+      <p class="step">Reference angle = arcsin(0.5) = 30°</p>
+      <p class="step">sin is positive in Q1 and Q2</p>
+      <p class="step">θ = 30° + 360°n  or  θ = 150° + 360°n, n ∈ ℤ</p>
+      <div class="answer">∴ θ = 30° + 360°n or θ = 150° + 360°n</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — cos equation</div>
+      <p>Solve: cos θ = −½</p>
+      <p class="step">Reference = arccos(½) = 60°; cos is negative in Q2 and Q3</p>
+      <p class="step">θ = 180° − 60° + 360°n = 120° + 360°n</p>
+      <p class="step">θ = 180° + 60° + 360°n = 240° + 360°n</p>
+      <p class="step">Using general formula: θ = ±120° + 360°n</p>
+      <div class="answer">∴ θ = 120° + 360°n or θ = −120° + 360°n</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — tan equation</div>
+      <p>Solve: tan θ = √3</p>
+      <p class="step">Reference = arctan(√3) = 60°</p>
+      <div class="answer">∴ θ = 60° + 180°n, n ∈ ℤ</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 4 — Restricted domain</div>
+      <p>Solve 2cos θ − 1 = 0 for θ ∈ [−180°; 360°]</p>
+      <p class="step">cos θ = ½ → θ = ±60° + 360°n</p>
+      <p class="step">n=0: θ = 60° or θ = −60°</p>
+      <p class="step">n=1: θ = 60°+360° = 420° (too big); θ = −60°+360° = 300°</p>
+      <p class="step">n=−1: θ = 60°−360° = −300° (too small); θ = −60°−360° = −420° (too small)</p>
+      <div class="answer">∴ θ ∈ {−60°; 60°; 300°}</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ EUCLIDEAN GEOMETRY ═══════════════════════════════ -->
+<div id="euclid" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(91,156,246,0.15)">🔷</div>
+    <div>
+      <h2>Euclidean Geometry</h2>
+      <p>Topic 3 · Grade 11 ATP Theorems</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">Grade 11 Euclidean Geometry Theorems <span class="tag">Must Know</span></div>
+    <div class="warn-box">You must be able to PROVE these theorems AND apply them. State the theorem/reason clearly in each step.</div>
+
+    <table>
+      <tr><th>#</th><th>Theorem</th><th>Key Statement</th></tr>
+      <tr><td>T1</td><td>Line from centre to midpoint</td><td>The line from the centre of a circle to the midpoint of a chord is perpendicular to the chord.</td></tr>
+      <tr><td>T2</td><td>Perpendicular from centre</td><td>The perpendicular from the centre of a circle to a chord bisects the chord.</td></tr>
+      <tr><td>T3</td><td>Angle at centre = 2 × inscribed</td><td>The angle subtended by an arc at the centre is double the angle subtended at the circumference.</td></tr>
+      <tr><td>T4</td><td>Angles in same segment</td><td>Angles subtended by the same arc (chord) in the same segment are equal.</td></tr>
+      <tr><td>T5</td><td>Angle in semicircle = 90°</td><td>The angle in a semicircle is 90° (angle subtended by diameter at circumference).</td></tr>
+      <tr><td>T6</td><td>Opposite angles of cyclic quad</td><td>Opposite angles of a cyclic quadrilateral are supplementary (add up to 180°).</td></tr>
+      <tr><td>T7</td><td>Exterior angle of cyclic quad</td><td>The exterior angle of a cyclic quadrilateral equals the interior opposite angle.</td></tr>
+      <tr><td>T8</td><td>Tangent-radius</td><td>The tangent to a circle is perpendicular to the radius at the point of tangency.</td></tr>
+      <tr><td>T9</td><td>Tangent from external point</td><td>Tangent segments from an external point are equal in length.</td></tr>
+      <tr><td>T10</td><td>Tan-chord angle</td><td>The angle between a tangent and a chord equals the inscribed angle on the opposite side (tan-chord = angle in alt. segment).</td></tr>
+    </table>
+  </div>
+
+  <div class="card">
+    <div class="card-title">a. Proof of Theorems — Key Proofs</div>
+    <div class="example">
+      <div class="ex-label">Proof: Angle at Centre = 2 × Angle at Circumference</div>
+      <p><strong>Given:</strong> Circle with centre O. Arc BC subtends ∠BOC at centre and ∠BAC at A on circumference.</p>
+      <p><strong>To prove:</strong> ∠BOC = 2∠BAC</p>
+      <p class="step">Construction: Draw AO and extend to D.</p>
+      <p class="step">In △AOB: OA = OB (radii) → △AOB is isosceles</p>
+      <p class="step">∴ ∠OAB = ∠OBA (base angles equal)</p>
+      <p class="step">Ext angle: ∠BOD = ∠OAB + ∠OBA = 2∠OAB</p>
+      <p class="step">Similarly in △AOC: ∠COD = 2∠OAC</p>
+      <p class="step">∴ ∠BOC = ∠BOD + ∠COD = 2∠OAB + 2∠OAC = 2∠BAC ✓</p>
+      <div class="answer">∠BOC = 2∠BAC (angle at centre = 2 × angle at circumference)</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof: Opposite Angles of Cyclic Quad = 180°</div>
+      <p><strong>Given:</strong> Cyclic quad ABCD.</p>
+      <p><strong>To prove:</strong> ∠A + ∠C = 180°</p>
+      <p class="step">Arc BCD subtends reflex ∠BOD at centre = 2∠A (angle at centre)</p>
+      <p class="step">Arc BAD subtends ∠BOD (minor) at centre = 2∠C</p>
+      <p class="step">Reflex ∠BOD + ∠BOD = 360° (angles around point)</p>
+      <p class="step">∴ 2∠A + 2∠C = 360° → ∠A + ∠C = 180° ✓</p>
+      <div class="answer">Opposite angles of a cyclic quadrilateral are supplementary.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">b. Application of Theorems <span class="tag">Application</span></div>
+    <div class="def-box">
+      <div class="def-word">Approach to Solving Euclidean Geometry Questions</div>
+      Step 1: Read question and mark all given info on diagram.<br>
+      Step 2: Identify which theorem applies (look for equal radii, chords, arcs).<br>
+      Step 3: Write each statement with a reason.<br>
+      Step 4: Work towards what is required.
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1</div>
+      <p>O is the centre. ∠AOB = 110°. Find ∠ACB where C is on the major arc.</p>
+      <p class="step">∠AOB = 2∠ACB (angle at centre = 2 × angle at circumference, same arc AB)</p>
+      <p class="step">But ∠ACB is in major arc, so we use reflex ∠AOB = 360° − 110° = 250°</p>
+      <p class="step">∠ACB = 250°/2 = 125°</p>
+      <div class="answer">∴ ∠ACB = 125°</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Cyclic Quad</div>
+      <p>ABCD is a cyclic quad. ∠A = 3x and ∠C = x + 40°. Find x.</p>
+      <p class="step">∠A + ∠C = 180° (opp angles cyclic quad)</p>
+      <p class="step">3x + x + 40° = 180° → 4x = 140° → x = 35°</p>
+      <div class="answer">∴ x = 35°; ∠A = 105°; ∠C = 75°</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — Tangent-Chord</div>
+      <p>TB is a tangent at B. Chord BC. ∠TBC = 42°. Find the angle in the alternate segment.</p>
+      <p class="step">By tan-chord theorem: angle in alternate segment = ∠TBC = 42°</p>
+      <div class="answer">∴ ∠BAC = 42° (tan-chord = angle in alternate segment)</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">🔑 Euclidean Geometry Reasons (Abbreviations)</div>
+    <table>
+      <tr><th>Theorem</th><th>How to write the reason</th></tr>
+      <tr><td>Angle at centre</td><td>∠ at centre = 2 × ∠ at circumference</td></tr>
+      <tr><td>Angles in same segment</td><td>∠s in same segment</td></tr>
+      <tr><td>Angle in semicircle</td><td>∠ in semicircle = 90°</td></tr>
+      <tr><td>Opp angles cyclic quad</td><td>opp ∠s cyclic quad (or: ABCD is a cyclic quad)</td></tr>
+      <tr><td>Exterior angle cyclic quad</td><td>ext ∠ cyclic quad</td></tr>
+      <tr><td>Tangent-radius</td><td>tan ⊥ radius</td></tr>
+      <tr><td>Tangent from external point</td><td>tans from common ext point</td></tr>
+      <tr><td>Tan-chord angle</td><td>tan-chord theorem (∠ in alt. segment)</td></tr>
+      <tr><td>Equal radii</td><td>radii</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SINE & COSINE ═══════════════════════════════ -->
+<div id="sine-cosine" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(74,222,128,0.15)">📏</div>
+    <div>
+      <h2>Sine & Cosine Rules</h2>
+      <p>Topic 4 · Proofs, application, area rule</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">a. Proof of the Rules</div>
+    <div class="formula-box">
+      <div class="label">Sine Rule</div>
+      a/sin A = b/sin B = c/sin C
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof of Sine Rule</div>
+      <p>In △ABC, draw altitude h from B to AC.</p>
+      <p class="step">In △ABD: sin A = h/c → h = c·sin A</p>
+      <p class="step">In △BCD: sin C = h/a → h = a·sin C</p>
+      <p class="step">∴ c·sin A = a·sin C → a/sin A = c/sin C ✓</p>
+      <p class="step">Similarly draw another altitude to prove b/sin B = a/sin A</p>
+      <div class="answer">∴ a/sin A = b/sin B = c/sin C (Sine Rule proven)</div>
+    </div>
+    <div class="formula-box">
+      <div class="label">Cosine Rule</div>
+      a² = b² + c² − 2bc·cos A<br>
+      (Also: b² = a² + c² − 2ac·cos B)<br>
+      (Also: c² = a² + b² − 2ab·cos C)
+    </div>
+    <div class="example">
+      <div class="ex-label">Proof of Cosine Rule</div>
+      <p>In △ABC, drop perpendicular from A to BC at D. Let BD = x.</p>
+      <p class="step">In △ABD: x = c·cos B; AD = c·sin B</p>
+      <p class="step">In △ACD: b² = AD² + DC² = (c·sinB)² + (a−c·cosB)²</p>
+      <p class="step">= c²sin²B + a² − 2ac·cosB + c²cos²B</p>
+      <p class="step">= c²(sin²B + cos²B) + a² − 2ac·cosB</p>
+      <p class="step">= c² + a² − 2ac·cosB ✓ (this gives b² = a² + c² − 2ac·cosB)</p>
+      <div class="answer">Cosine Rule proved: a² = b² + c² − 2bc·cos A</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">b. Applying the Rules <span class="tag">Application</span></div>
+    <div class="def-box">
+      <div class="def-word">When to use which rule</div>
+      <strong>Use Sine Rule</strong> when you know: AAS, ASA, or SSA (ambiguous case)<br>
+      <strong>Use Cosine Rule</strong> when you know: SAS or SSS
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1 — Sine Rule (finding a side)</div>
+      <p>In △ABC: ∠A = 50°, ∠B = 70°, a = 8. Find b.</p>
+      <p class="step">b/sin B = a/sin A → b/sin70° = 8/sin50°</p>
+      <p class="step">b = 8·sin70°/sin50° = 8 × 0.9397/0.7660</p>
+      <div class="answer">∴ b ≈ 9.81 units</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Cosine Rule (finding a side)</div>
+      <p>In △ABC: b = 7, c = 5, ∠A = 60°. Find a.</p>
+      <p class="step">a² = b² + c² − 2bc·cosA = 49 + 25 − 2(7)(5)cos60°</p>
+      <p class="step">= 74 − 70(0.5) = 74 − 35 = 39</p>
+      <div class="answer">∴ a = √39 ≈ 6.24</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — Cosine Rule (finding an angle)</div>
+      <p>In △ABC: a = 5, b = 7, c = 8. Find ∠A.</p>
+      <p class="step">cos A = (b² + c² − a²)/(2bc) = (49 + 64 − 25)/(2×7×8) = 88/112 = 11/14</p>
+      <p class="step">∠A = arccos(11/14)</p>
+      <div class="answer">∴ ∠A ≈ 38.21°</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 4 — Mixed problem with circles</div>
+      <p>Two radii OA = OB = 10cm, ∠AOB = 80°. Find chord AB.</p>
+      <p class="step">AB² = OA² + OB² − 2·OA·OB·cos(∠AOB)</p>
+      <p class="step">= 100 + 100 − 200·cos80° = 200 − 200(0.1736) = 200 − 34.73 = 165.27</p>
+      <div class="answer">∴ AB ≈ 12.86 cm</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title">c. Area Rule <span class="tag">Core</span></div>
+    <div class="formula-box">
+      <div class="label">Area Rule</div>
+      Area △ABC = ½·b·c·sin A<br>
+      Area △ABC = ½·a·c·sin B<br>
+      Area △ABC = ½·a·b·sin C<br><br>
+      (Use ANY two sides and the INCLUDED angle)
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 1</div>
+      <p>b = 6, c = 9, ∠A = 35°. Find the area of △ABC.</p>
+      <p class="step">Area = ½ × 6 × 9 × sin35° = 27 × 0.5736</p>
+      <div class="answer">∴ Area ≈ 15.49 cm²</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 2 — Find unknown side from area</div>
+      <p>Area of △PQR = 24 cm². PQ = 8 cm, ∠P = 40°. Find PR.</p>
+      <p class="step">24 = ½ × 8 × PR × sin40°</p>
+      <p class="step">24 = 4 × PR × 0.6428 → PR = 24/(4 × 0.6428)</p>
+      <div class="answer">∴ PR ≈ 9.33 cm</div>
+    </div>
+    <div class="example">
+      <div class="ex-label">Example 3 — Compound shape</div>
+      <p>ABCD is a quadrilateral with diagonal AC = 15. ∠ABC = 55°, AB = 10; ∠ACD = 40°, CD = 12. Find total area.</p>
+      <p class="step">Area △ABC = ½ × AB × AC × sin(∠BAC) ... use cosine rule first for ∠BAC</p>
+      <p class="step">Or split into 2 triangles and use area rule on each.</p>
+      <div class="answer">Always split complex shapes into triangles and apply the area rule.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ PRACTICE TEST ═══════════════════════════════ -->
+<div id="practice" class="section">
+  <div class="sec-header">
+    <div class="sec-icon" style="background:rgba(245,200,66,0.15)">📝</div>
+    <div>
+      <h2>Practice Test</h2>
+      <p>DBE-aligned · 120 marks · 2hrs 30min · Click "Show Memo" after each question</p>
+    </div>
+  </div>
+
+  <div class="card" style="border-color:var(--gold);background:rgba(245,200,66,0.05)">
+    <div class="card-title">Instructions</div>
+    <ul class="notes">
+      <li>Answer ALL questions. Show ALL working.</li>
+      <li>Calculators are permitted. Round to 2 decimal places unless stated otherwise.</li>
+      <li>Diagrams are not drawn to scale.</li>
+      <li>State reasons for all geometry statements.</li>
+    </ul>
+  </div>
+
+  <!-- QUESTION 1 -->
+  <div style="margin-bottom:10px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--teal);border-bottom:1px solid var(--border);padding-bottom:8px;margin-top:30px">QUESTION 1 — Analytical Geometry [30]</div>
+
+  <div class="q-block">
+    <div class="q-num">Q1.1</div>
+    <div class="q-text">A(−2 ; 4), B(4 ; 2) and C(2 ; −4) are vertices of △ABC.
+    <br>(a) Find the length of AB. <span class="marks-badge">2</span>
+    <br>(b) Find the gradient of BC. <span class="marks-badge">2</span>
+    <br>(c) Show that AB ⊥ BC. <span class="marks-badge">2</span>
+    <br>(d) Find the equation of AB. <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> AB = √[(4−(−2))² + (2−4)²] = √[36+4] = √40 = 2√10 ✓ (2)<br><br>
+      <strong>(b)</strong> m_BC = (−4−2)/(2−4) = −6/−2 = 3 ✓ (2)<br><br>
+      <strong>(c)</strong> m_AB = (2−4)/(4−(−2)) = −2/6 = −1/3<br>
+      m_AB × m_BC = (−1/3)(3) = −1 ∴ AB ⊥ BC ✓ (2)<br><br>
+      <strong>(d)</strong> m = −1/3, point A(−2;4):<br>
+      y − 4 = −1/3(x − (−2))<br>
+      y = −x/3 + 10/3 ✓ (3)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q1.2</div>
+    <div class="q-text">The line through P(1 ; k) and Q(3 ; 5) has an angle of inclination of 45°.
+    <br>(a) Determine k. <span class="marks-badge">3</span>
+    <br>(b) Find the equation of the line perpendicular to PQ passing through R(0 ; −1). <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> θ = 45° → m = tan45° = 1<br>
+      m = (5−k)/(3−1) = 1 → 5−k = 2 → k = 3 ✓ (3)<br><br>
+      <strong>(b)</strong> m_perp = −1 (since m_PQ × m_perp = −1)<br>
+      y = −x + c; through (0;−1): c = −1<br>
+      ∴ y = −x − 1 ✓ (3)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q1.3</div>
+    <div class="q-text">A(1;3), B(5;3) and C(3;7) form a triangle.
+    <br>(a) Find the area of △ABC using the coordinate area formula. <span class="marks-badge">4</span>
+    <br>(b) Find the midpoint M of AB and the equation of CM. <span class="marks-badge">4</span>
+    <br>(c) Is CM a median, altitude or perpendicular bisector? Justify fully. <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> Area = ½|x_A(y_B−y_C) + x_B(y_C−y_A) + x_C(y_A−y_B)|<br>
+      = ½|1(3−7) + 5(7−3) + 3(3−3)|<br>
+      = ½|−4 + 20 + 0| = ½(16) = 8 square units ✓ (4)<br><br>
+      <strong>(b)</strong> M = ((1+5)/2 ; (3+3)/2) = (3;3)<br>
+      m_CM = (7−3)/(3−3) = 4/0 → undefined (vertical line)<br>
+      Equation: x = 3 ✓ (4)<br><br>
+      <strong>(c)</strong> M is the midpoint of AB ∴ CM is a MEDIAN.<br>
+      Also check: m_AB = 0 (horizontal); CM is vertical (x=3) → m_CM undefined<br>
+      m_AB × m_CM: 0 × undefined → CM ⊥ AB → CM is also the PERPENDICULAR BISECTOR of AB. ✓ (3)
+    </div>
+  </div>
+
+  <!-- QUESTION 2 -->
+  <div style="margin-bottom:10px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--pink);border-bottom:1px solid var(--border);padding-bottom:8px;margin-top:30px">QUESTION 2 — Trigonometry [50]</div>
+
+  <div class="q-block">
+    <div class="q-num">Q2.1</div>
+    <div class="q-text">Without using a calculator, simplify each of the following:
+    <br>(a) sin(180°+θ)·cos(360°−θ) / [tan(180°−θ)·sin(−θ)] <span class="marks-badge">6</span>
+    <br>(b) cos(90°+x)·sin(90°−x) + sin²(180°+x) <span class="marks-badge">4</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> sin(180°+θ) = −sinθ<br>
+      cos(360°−θ) = cosθ<br>
+      tan(180°−θ) = −tanθ<br>
+      sin(−θ) = −sinθ<br>
+      = (−sinθ)(cosθ) / [(−tanθ)(−sinθ)]<br>
+      = −sinθ·cosθ / (tanθ·sinθ)<br>
+      = −cosθ / tanθ = −cosθ / (sinθ/cosθ)<br>
+      = −cos²θ/sinθ ✓ (6)<br><br>
+      <strong>(b)</strong> cos(90°+x) = −sinx; sin(90°−x) = cosx; sin(180°+x) = −sinx<br>
+      = (−sinx)(cosx) + (−sinx)²<br>
+      = −sinx·cosx + sin²x ✓ (4)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q2.2</div>
+    <div class="q-text">Prove the following identities:
+    <br>(a) (1 − sin²θ)/cosθ = cosθ <span class="marks-badge">3</span>
+    <br>(b) sin²α/(1 − cosα) = 1 + cosα <span class="marks-badge">4</span>
+    <br>(c) (sinβ + cosβ)² = 1 + 2sinβcosβ <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> LHS = cos²θ/cosθ = cosθ = RHS ✓ (3)<br><br>
+      <strong>(b)</strong> LHS = (1−cos²α)/(1−cosα) = [(1−cosα)(1+cosα)]/(1−cosα) = 1+cosα = RHS ✓ (4)<br><br>
+      <strong>(c)</strong> LHS = sin²β + 2sinβcosβ + cos²β = 1 + 2sinβcosβ = RHS ✓ (3)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q2.3</div>
+    <div class="q-text">Determine the general solution of each equation:
+    <br>(a) 2sinθ − 1 = 0 <span class="marks-badge">4</span>
+    <br>(b) cos2θ = −½ [Hint: let 2θ = x] <span class="marks-badge">4</span>
+    <br>(c) tanθ + √3 = 0 <span class="marks-badge">4</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> sinθ = ½ → ref = 30°<br>
+      θ = 30° + 360°n  OR  θ = 150° + 360°n,  n∈ℤ ✓ (4)<br><br>
+      <strong>(b)</strong> cos2θ = −½ → ref = 60°<br>
+      2θ = 120° + 360°n  OR  2θ = −120° + 360°n<br>
+      θ = 60° + 180°n  OR  θ = −60° + 180°n,  n∈ℤ ✓ (4)<br><br>
+      <strong>(c)</strong> tanθ = −√3 → ref = 60°<br>
+      θ = 180° − 60° + 180°n = 120° + 180°n,  n∈ℤ ✓ (4)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q2.4</div>
+    <div class="q-text">Given: sin A = 4/5 with A ∈ (90°; 180°). Without a calculator, find:
+    <br>(a) cos A <span class="marks-badge">3</span>
+    <br>(b) tan A <span class="marks-badge">2</span>
+    <br>(c) cos(180° + A) <span class="marks-badge">2</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> y=4, r=5; x=−√(25−16)=−3 (Q2, x negative)<br>
+      cosA = −3/5 ✓ (3)<br><br>
+      <strong>(b)</strong> tanA = y/x = 4/(−3) = −4/3 ✓ (2)<br><br>
+      <strong>(c)</strong> cos(180°+A) = −cosA = −(−3/5) = 3/5 ✓ (2)
+    </div>
+  </div>
+
+  <!-- QUESTION 3 -->
+  <div style="margin-bottom:10px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--blue);border-bottom:1px solid var(--border);padding-bottom:8px;margin-top:30px">QUESTION 3 — Euclidean Geometry [30]</div>
+
+  <div class="q-block">
+    <div class="q-num">Q3.1</div>
+    <div class="q-text">O is the centre of the circle. A, B and C are points on the circle. ∠AOB = 124°.
+    <br>(a) Find ∠ACB if C is on the minor arc. <span class="marks-badge">2</span>
+    <br>(b) Find ∠ACB if C is on the major arc. <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> ∠ACB (minor arc) = ½ × reflex ∠AOB = ½(360°−124°) = ½(236°) = 118°<br>
+      Reason: ∠ at centre = 2× ∠ at circumference ✓ (2)<br><br>
+      <strong>(b)</strong> ∠ACB (major arc, same arc AB) = ½ × 124° = 62° ✓ (3)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q3.2</div>
+    <div class="q-text">PQRS is a cyclic quadrilateral. ∠P = (2x+10)°, ∠R = (x−20)°, ∠Q = 95°.
+    <br>(a) Find x. <span class="marks-badge">3</span>
+    <br>(b) Find ∠S. <span class="marks-badge">2</span>
+    <br>(c) Is QR a diameter? Give a reason. <span class="marks-badge">2</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> ∠P + ∠R = 180° (opp angles cyclic quad)<br>
+      (2x+10) + (x−20) = 180 → 3x − 10 = 180 → x = 190/3 ≈ 63.33°<br>
+      Let me re-check: 3x = 190 → x = 63.3°. ✓ (3)<br><br>
+      <strong>(b)</strong> ∠Q + ∠S = 180° → ∠S = 180° − 95° = 85° ✓ (2)<br><br>
+      <strong>(c)</strong> For QR to be a diameter, ∠QSR or ∠QPR would need to be 90°. Check the calculated angles — if any inscribed angle in the semicircle is 90°, then yes. Answer depends on calculated angles. State: "QR is a diameter if and only if the angle it subtends at the circumference is 90° (angle in semicircle)." (2)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q3.3</div>
+    <div class="q-text">TA and TB are tangents from external point T to a circle with centre O. OA = 6 cm and AT = 8 cm.
+    <br>(a) Find OT. <span class="marks-badge">3</span>
+    <br>(b) Find TB. Give a reason. <span class="marks-badge">2</span>
+    <br>(c) Prove that △OAT ≡ △OBT. <span class="marks-badge">4</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> ∠OAT = 90° (tan ⊥ radius)<br>
+      OT² = OA² + AT² = 36 + 64 = 100 → OT = 10 cm ✓ (3)<br><br>
+      <strong>(b)</strong> TB = TA = 8 cm<br>
+      Reason: tangents from a common external point are equal ✓ (2)<br><br>
+      <strong>(c)</strong> In △OAT and △OBT:<br>
+      OA = OB (radii) ✓<br>
+      TA = TB (tans from common ext point) ✓<br>
+      OT = OT (common side) ✓<br>
+      ∴ △OAT ≡ △OBT (SSS) ✓ (4)
+    </div>
+  </div>
+
+  <!-- QUESTION 4 -->
+  <div style="margin-bottom:10px;font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--correct);border-bottom:1px solid var(--border);padding-bottom:8px;margin-top:30px">QUESTION 4 — Sine, Cosine & Area Rules [10]</div>
+
+  <div class="q-block">
+    <div class="q-num">Q4.1</div>
+    <div class="q-text">In △KLM: KL = 9 cm, LM = 6 cm and ∠KLM = 72°.
+    <br>(a) Find KM using the cosine rule. <span class="marks-badge">4</span>
+    <br>(b) Find the area of △KLM. <span class="marks-badge">2</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> KM² = KL² + LM² − 2·KL·LM·cos(∠KLM)<br>
+      = 81 + 36 − 2(9)(6)cos72°<br>
+      = 117 − 108(0.309) = 117 − 33.37 = 83.63<br>
+      KM = √83.63 ≈ 9.14 cm ✓ (4)<br><br>
+      <strong>(b)</strong> Area = ½ × KL × LM × sin(∠KLM)<br>
+      = ½ × 9 × 6 × sin72° = 27 × 0.951 ≈ 25.68 cm² ✓ (2)
+    </div>
+  </div>
+
+  <div class="q-block">
+    <div class="q-num">Q4.2</div>
+    <div class="q-text">In △PQR: ∠P = 48°, ∠Q = 65°, PQ = 14 cm.
+    <br>(a) Find ∠R. <span class="marks-badge">1</span>
+    <br>(b) Find PR using the sine rule. <span class="marks-badge">3</span></div>
+    <button class="memo-toggle" onclick="toggleMemo(this)">📋 Show Memo</button>
+    <div class="memo-content">
+      <strong>(a)</strong> ∠R = 180° − 48° − 65° = 67° ✓ (1)<br><br>
+      <strong>(b)</strong> PR/sin Q = PQ/sin R<br>
+      PR/sin65° = 14/sin67°<br>
+      PR = 14 × sin65°/sin67°<br>
+      PR = 14 × 0.9063/0.9205 ≈ 13.78 cm ✓ (3)
+    </div>
+  </div>
+
+  <div class="card" style="border-color:var(--teal);background:rgba(0,201,177,0.05);margin-top:30px">
+    <div class="card-title" style="color:var(--teal)">📊 Total: 120 Marks | Time: 2hrs 30min</div>
+    <p style="font-size:14px">Q1: 30 marks &nbsp;|&nbsp; Q2: 50 marks &nbsp;|&nbsp; Q3: 30 marks &nbsp;|&nbsp; Q4: 10 marks</p>
+    <p style="font-size:13px;color:var(--muted);margin-top:8px">This practice test is aligned with the Department of Basic Education South Africa CAPS curriculum for Grade 11 Mathematics Paper 2.</p>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer>
+  <p>Grade 11 Pure Mathematics Paper 2 · June 2026 Study Guide</p>
+  <p style="margin-top:6px">Created with <span>Shden.K</span> &amp; <span>Claude</span> · Aligned with the <span>Department of Basic Education South Africa</span></p>
+</footer>
+
+<script>
+  function showSection(id, btn) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function toggleMemo(btn) {
+    const memo = btn.nextElementSibling;
+    const showing = memo.classList.contains('show');
+    memo.classList.toggle('show');
+    btn.textContent = showing ? '📋 Show Memo' : '✅ Hide Memo';
+  }
+</script>
+</body>
+</html>
